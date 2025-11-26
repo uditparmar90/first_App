@@ -1,0 +1,18 @@
+<ul class="completed-task-list">
+  @for (item of allTasks; track $index) {
+    <li class="completed-task">
+      <div class="text-section">
+        <span class="checkmark">✔</span>
+        <div>
+          <div class="task-title">{{ item.title }}</div>
+          <div class="task-date">{{ item.dueDate | date:'mediumDate' }}</div>
+        </div>
+      </div>
+
+     <span class="btn priority {{ 'priority-' + item.priority.toLowerCase() }}">
+  {{ item.priority }}
+</span>
+
+    </li>
+  }
+</ul>

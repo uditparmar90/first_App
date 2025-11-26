@@ -27,6 +27,8 @@
 <div class="task-list">
   <h2>Task List</h2>
   <ul>
+    <app-to-list [allTasks]="allTasks"></app-to-list>
+
     <!-- <li *ngFor="let task of tasks">
       <span [ngClass]="task.priority">{{ task.title }} - {{ task.dueDate | date }}</span>
     </li> -->

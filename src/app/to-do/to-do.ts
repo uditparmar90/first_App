@@ -1,15 +1,25 @@
-import { Component } from '@angular/core';
+import { Component,OnInit, 
+  OnChanges, 
+  DoCheck, 
+  AfterContentInit, 
+  AfterContentChecked, 
+  AfterViewInit, 
+  AfterViewChecked, 
+  OnDestroy,
+  SimpleChanges } from '@angular/core';
+import { ToList } from '../to-list/to-list';
 
 @Component({
   selector: 'app-to-do',
-  imports: [],
+  imports: [ToList],
   templateUrl: './to-do.html',
   styleUrl: './to-do.css',
 })
-export class ToDo {
+export class ToDo implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 title: string="";
 dueDate: Date|null = null;
 priority: string="";
+allTasks: any[] = [];
 addTask() 
 {
   const titleInput = document.getElementById('title') as HTMLInputElement;
@@ -19,8 +29,42 @@ addTask()
   this.dueDate=new Date(dueDateInput?.value);
   this.priority=priorityInput.value;
   console.log(this.title, this.dueDate, this.priority);
-
-}
+  const newTask = {
+    title:this.title,
+    dueDate:this.dueDate,
+    priority:this.priority
+};
+this.allTasks.push(newTask);
+console.log(this.allTasks);
+};
+constructor() {
+  console.log('Constructor called');
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges called', changes);
+  }
+  ngOnInit(): void {
+    console.log('ngOnInit called');
+  }
+  ngDoCheck(): void {
+    console.log('ngDoCheck called');
+  }
+  ngAfterContentInit(): void {
+    console.log('ngAfterContentInit called'); 
+  }
+  ngAfterContentChecked(): void {
+    // allTasks=this.allTasks;
+    console.log('ngAfterContentChecked called');
+  }
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit called');  
+  }
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked called');
+  }
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy called');
+  }
   
 
 }
