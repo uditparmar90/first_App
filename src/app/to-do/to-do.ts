@@ -19,6 +19,7 @@ export class ToDo implements OnInit, OnChanges, DoCheck, AfterContentInit, After
 title: string="";
 dueDate: Date|null = null;
 priority: string="";
+Complated:boolean=false;
 allTasks: any[] = [];
 addTask() 
 {
@@ -28,13 +29,20 @@ addTask()
   this.title=titleInput.value;
   this.dueDate=new Date(dueDateInput?.value);
   this.priority=priorityInput.value;
+  this.Complated=false;
   console.log(this.title, this.dueDate, this.priority);
   const newTask = {
     title:this.title,
     dueDate:this.dueDate,
-    priority:this.priority
+    priority:this.priority,
+    isComplated:this.Complated
 };
 this.allTasks.push(newTask);
+titleInput.value='';
+dueDateInput.value='';
+priorityInput.value='';
+
+
 console.log(this.allTasks);
 };
 constructor() {
