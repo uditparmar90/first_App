@@ -21,35 +21,40 @@ dueDate: Date|null = null;
 priority: string="";
 Complated:boolean=false;
 allTasks: any[] = [];
-addTask() 
-{
+addTask() {
   const titleInput = document.getElementById('title') as HTMLInputElement;
   const dueDateInput = document.getElementById('dueDate') as HTMLInputElement;
-  const priorityInput=document.getElementById('priority') as HTMLSelectElement;
-  this.title=titleInput.value;
-  this.dueDate=new Date(dueDateInput?.value);
-  this.priority=priorityInput.value;
-  this.Complated=false;
-  console.log(this.title, this.dueDate, this.priority);
+  const priorityInput = document.getElementById('priority') as HTMLSelectElement;
+
+  this.title = titleInput.value;
+  this.dueDate = new Date(dueDateInput.value);
+  this.priority = priorityInput.value;
+  this.Complated = false;
+
   const newTask = {
-    title:this.title,
-    dueDate:this.dueDate,
-    priority:this.priority,
-    isComplated:this.Complated
-};
-this.allTasks.push(newTask);
-titleInput.value='';
-dueDateInput.value='';
-priorityInput.value='';
+    title: this.title,
+    dueDate: this.dueDate,
+    priority: this.priority,
+    isComplated: this.Complated
+  };
 
+  // IMPORTANT FIX
+  this.allTasks = [...this.allTasks, newTask];
 
-console.log(this.allTasks);
-};
+  // Reset fields
+  titleInput.value = '';
+  dueDateInput.value = '';
+  priorityInput.value = '';
+
+  console.log(this.allTasks);
+}
+
 constructor() {
   console.log('Constructor called');
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('ngOnChanges called', changes);
+    
   }
   ngOnInit(): void {
     console.log('ngOnInit called');
