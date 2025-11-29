@@ -1,8 +1,8 @@
 <ul class="completed-task-list container">
-  @for (item of ownTaskCopy; track $index) {
+  @for (item of allTasks; track $index) {
     <li class="task align-center col-10">
       <div class="text-section">
-        <div class="action-div"><input class="form-check-input" type="checkbox" [checked]="item.isComplated"
+        <div class="action-div"><input class="form-check-input" type="checkbox" changes="allTasks" (click)="sendToParent()"
 ></div>
         <!-- <span class="checkmark">✔</span> -->
         <div>

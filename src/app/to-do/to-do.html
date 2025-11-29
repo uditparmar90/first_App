@@ -27,7 +27,7 @@
 <div class="task-list">
   <h3>Task List</h3>
   <ul>
-    <app-to-list [allTasks]="allTasks"></app-to-list>
+    <app-to-list [allTasks]="allTasks" (taskChange)="receiveFromChild($event)"></app-to-list>
 
     <!-- <li *ngFor="let task of tasks">
       <span [ngClass]="task.priority">{{ task.title }} - {{ task.dueDate | date }}</span>

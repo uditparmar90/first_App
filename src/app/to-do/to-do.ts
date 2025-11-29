@@ -45,16 +45,18 @@ addTask() {
   titleInput.value = '';
   dueDateInput.value = '';
   priorityInput.value = '';
-
   console.log(this.allTasks);
 }
+childMessage: string = '';
+  receiveFromChild(data: Event) {
+    console.log("Received from child:", data);
+  }
 
 constructor() {
   console.log('Constructor called');
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('ngOnChanges called', changes);
-    
   }
   ngOnInit(): void {
     console.log('ngOnInit called');

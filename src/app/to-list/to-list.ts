@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, Input, SimpleChanges,  EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,16 +8,18 @@ import { CommonModule } from '@angular/common';
   templateUrl: './to-list.html',
   styleUrl: './to-list.css',
 })
-export class ToList implements OnChanges {
+export class ToList{
+  @Input() allTasks: any;
+  @Output() taskChange = new EventEmitter<any>();
 
-  @Input() allTasks: any[] = [];   // data from parent
-  ownTaskCopy: any[] = [];         // local copy for display
+  sendToParent() {
+    this.taskChange.emit({"": "data from child" });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['allTasks']) {
-      this.ownTaskCopy = [...this.allTasks];  // update local copy
-      console.log("Updated ownTaskCopy:", this.ownTaskCopy);
+      console.log("ngOnChanges", changes['allTasks'].currentValue);
+      this.taskChange.emit(this.allTasks);
     }
   }
-
 }
