@@ -10,10 +10,19 @@
         <p>{{ i+1}} - {{ user }}</p>
     }
 } -->
-    @for(user of users; track $index; let i=$index){
+    <!-- @for(user of users; track $index; let i=$index){
         @if($even){
             <h3 class="m-1 p-1" style="background-color: rgb(211, 47, 88);">{{i+1}} - {{user}}</h3>
         }@else{
             <h3 class="m-1 p-1" style="background-color: rgb(52, 169, 207);">{{i+1}} - {{user}}</h3>
         }
-    }@empty {<h3 class="text-danger">No users</h3>}
+    }@empty {<h3 class="text-danger">No users</h3>} -->
+
+
+<input type="text" class="form-control m-2" placeholder="Enter Name" [(ngModel)]="nameInput">
+<input type="password" class="form-control m-2" placeholder="Enter Password" [(ngModel)]="passwordInput">
+<p>{{nameInput}}</p>
+<p>{{passwordInput}}</p>
+<!-- <button class="btn btn-success m-2">Add User</button> -->
+<!-- <button class="btn btn-danger m-2" (click)="users.pop()">Remove Last User</button> -->
+

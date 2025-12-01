@@ -1,8 +1,9 @@
-import { Component,signal,effect } from '@angular/core';
+import { Component,signal,effect, } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pr-signals',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './pr-signals.html',
   styleUrl: './pr-signals.css',
 })
@@ -41,4 +42,6 @@ $t: any;
   // users=["udit","parmar","kumar","singh","anil","rahul","ajay","vijay","sachin","sourav","dhoni","yuvi","rohit"];
 
   users=[];
+  nameInput='';
+  passwordInput='';
 }
