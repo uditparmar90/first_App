@@ -7,6 +7,7 @@ import { Component,signal,effect } from '@angular/core';
   styleUrl: './pr-signals.css',
 })
 export class PrSignals {
+$t: any;
   constructor() {
     effect(()=>{
     console.log("conuter updated :"+this.count());
@@ -36,4 +37,8 @@ export class PrSignals {
       this.color.set('color:orange;');
     }
   }
+
+  // users=["udit","parmar","kumar","singh","anil","rahul","ajay","vijay","sachin","sourav","dhoni","yuvi","rohit"];
+
+  users=[];
 }
