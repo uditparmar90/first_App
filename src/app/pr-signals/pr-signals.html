@@ -19,10 +19,10 @@
     }@empty {<h3 class="text-danger">No users</h3>} -->
 
 
-<input type="text" class="form-control m-2" placeholder="Enter Name" [(ngModel)]="nameInput">
-<input type="password" class="form-control m-2" placeholder="Enter Password" [(ngModel)]="passwordInput">
-<p>{{nameInput}}</p>
-<p>{{passwordInput}}</p>
+<input type="text"  class="form-control m-2" placeholder="Enter Name"  [ngModel]="nameInput()" (ngModelChange)="nameInput.set($event)" [style]="successBorder()">
+<input type="password" class="form-control m-2" placeholder="Enter Password" [ngModel]="passwordInput()" (ngModelChange)="passwordInput.set($event)">
+<p>{{nameInput()}}</p>
+<p>{{passwordInput()}}</p>
 <!-- <button class="btn btn-success m-2">Add User</button> -->
 <!-- <button class="btn btn-danger m-2" (click)="users.pop()">Remove Last User</button> -->
 

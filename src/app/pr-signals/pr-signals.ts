@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './pr-signals.css',
 })
 export class PrSignals {
+  
 $t: any;
   constructor() {
     effect(()=>{
@@ -15,6 +16,16 @@ $t: any;
     console.log("color updated :"+this.color());
 
   })
+
+  effect(()=>{
+      if (this.nameInput() !== '') {
+        this.successBorder.set('border:2px solid green;');
+      } else {
+        this.successBorder.set('');
+      }
+
+    })
+
   }
   count = signal(0);
   color = signal('color:red;');
@@ -42,6 +53,8 @@ $t: any;
   // users=["udit","parmar","kumar","singh","anil","rahul","ajay","vijay","sachin","sourav","dhoni","yuvi","rohit"];
 
   users=[];
-  nameInput='';
-  passwordInput='';
+  nameInput=signal('');
+  passwordInput=signal('');
+  successBorder=signal('');
+
 }
