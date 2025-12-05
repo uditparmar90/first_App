@@ -9,10 +9,13 @@
 
 
 <main class="main">
-  <!-- <app-navbar></app-navbar> -->
-  <!-- <app-counter></app-counter> -->
-  <!-- <app-to-do></app-to-do> -->
-   <app-pr-signals></app-pr-signals>
+  <nav>
+  <a routerLink="/">Home</a>
+  <a routerLink="/about-us">About</a>
+  <a routerLink="/to-do">To-Do</a>
+</nav>
+
+<router-outlet></router-outlet>
  
 </main>
 
@@ -23,6 +26,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
