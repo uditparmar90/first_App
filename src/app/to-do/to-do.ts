@@ -8,6 +8,7 @@ import { Component,OnInit,
   OnDestroy,
   SimpleChanges } from '@angular/core';
 import { ToList } from '../to-list/to-list';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-to-do',
@@ -21,6 +22,15 @@ dueDate: Date|null = null;
 priority: string="";
 Complated:boolean=false;
 allTasks: any[] = [];
+clsMsg:string="";
+constructor(private route:ActivatedRoute) {}
+  ngOnInit(){
+    this.route.queryParams.subscribe(params=>{
+      this.clsMsg=params['msg'] || "";
+    });
+      
+  };
+
 addTask() {
   const titleInput = document.getElementById('title') as HTMLInputElement;
   const dueDateInput = document.getElementById('dueDate') as HTMLInputElement;
@@ -52,15 +62,15 @@ childMessage: string = '';
     console.log("Received from child:", data);
   }
 
-constructor() {
-  console.log('Constructor called');
-  }
+// constructor() {
+//   console.log('Constructor called');
+//   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('ngOnChanges called', changes);
   }
-  ngOnInit(): void {
-    console.log('ngOnInit called');
-  }
+  // ngOnInit(): void {
+  //   console.log('ngOnInit called');
+  // }
   ngDoCheck(): void {
     console.log('ngDoCheck called');
   }

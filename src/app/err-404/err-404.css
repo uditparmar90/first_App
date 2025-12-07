@@ -1,0 +1,20 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    }
+    .error-box {
+    text-align: center;
+    padding: 40px;
+    }
+    .error-box h1 {
+    font-size: 100px;
+    font-weight: 800;
+    color: #0d6efd;
+    }
+    .error-box p {
+    font-size: 20px;
+    color: #6c757d;
+    }

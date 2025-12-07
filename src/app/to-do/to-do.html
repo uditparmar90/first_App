@@ -1,5 +1,5 @@
 <div class="todo-card">
-  <h2>Add New Task</h2>
+    <h2>Add New Task</h2>
 
   <div class="form-group">
     <label>Task Title</label>
@@ -25,7 +25,8 @@
   <button class="add-btn" (click)="addTask()">add Task</button>
 </div>
 <div class="task-list">
-  <h3>Task List</h3>
+  <p>{{clsMsg}}</p>
+  <h2 class="">Task List</h2>
   <ul>
     <app-to-list [allTasks]="allTasks" (taskChange)="receiveFromChild($event)"></app-to-list>
 

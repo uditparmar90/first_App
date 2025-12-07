@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="error-box">
+        <h1>404</h1>
+        <h3 class="mb-3">Oops! Page Not Found</h3>
+        <p class="mb-4">The page you are looking for doesn't exist or has been moved.</p>
+
+        <a [routerLink]="['/']" [queryParams]="{msg:'pagenotfound'}" class="btn btn-primary btn-lg px-4">Go Back Home</a>
+        
+    </div>
+</div>
+<router-outlet/>
